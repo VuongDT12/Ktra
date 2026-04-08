@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Management System - Screenshots</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --success: #06c;
+            --danger: #dc3545;
+        }
+
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+        }
+
+        .page-title {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .page-title p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .screenshot-wrapper {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .screenshot-title {
+            color: var(--primary);
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .screenshot-frame {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .frame-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .frame-header .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+
+        .frame-header .dot.red { background: #ff5f56; }
+        .frame-header .dot.yellow { background: #ffbd2e; }
+        .frame-header .dot.green { background: #27c93f; }
+
+        .frame-body {
+            padding: 30px;
+        }
+
+        .navbar-mock {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 15px 30px;
+            color: white;
+            border-radius: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .navbar-mock a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.95em;
+        }
+
+        .navbar-mock a:hover {
+            opacity: 0.8;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-card.alt {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .stat-card.alt2 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .stat-card.alt3 {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .course-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .course-table thead {
+            background: #f8f9fa;
+        }
+
+        .course-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .course-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .course-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .badge-pill {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .badge-published {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-draft {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .btn-mock {
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-right: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary-mock {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-success-mock {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-danger-mock {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-secondary-mock {
+            background: #6c757d;
+            color: white;
+        }
+
+        .form-group-mock {
+            margin-bottom: 20px;
+        }
+
+        .form-label-mock {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-input-mock {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .form-input-mock:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .lessonlist {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .lesson-item {
+            padding: 15px;
+            background: white;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 4px;
+        }
+
+        .lesson-number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .lesson-title {
+            flex: 1;
+        }
+
+        .description-text {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .section-break {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 40px 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: white;
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+        }
+
+        .feature-list li:before {
+            content: "✓ ";
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .pagination-mock {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .pagination-mock a, .pagination-mock span {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .pagination-mock a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .pagination-mock .active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .footer-section {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+
+        .course-card-mock {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .course-card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+        }
+
+        .course-card-body {
+            padding: 20px;
+        }
+
+        .course-card-title {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .course-card-price {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .course-card-meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-title">
+        <h1>🎓 Screenshot & Wireframe</h1>
+        <p>Course Management System - Giao diện và Chức năng</p>
+    </div>
+
+    <div class="container">
+        <!-- Dashboard Screenshot -->
+        <div class="screenshot-wrapper">
+            <h2 class="screenshot-title">📊 Trang Dashboard (Trang chủ)</h2>
+            <p class="description-text">Bảng điều khiển chính hiển thị tổng hợp thống kê hệ thống</p>
+            
+            <div class="screenshot-frame">
+                <div class="frame-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="flex: 1; margin-left: 10px;">http://localhost:8000/</span>
+                </div>
+                <div class="frame-body">
+                    <div class="navbar-mock">
+                        <span style="font-weight: bold;">🎓 COURSE MANAGER</span>
+                        <div>
+                            <a href="#">Dashboard</a>
+                            <a href="#">Khóa học</a>
+                            <a href="#">Bài học</a>
+                            <a href="#">Đăng ký</a>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 30px;">
+                        <h3 style="color: #333; margin-bottom: 20px;">📈 Tổng quan hệ thống</h3>
+                        <div class="dashboard-grid">
+                            <div class="stat-card">
+                                <div style="font-size: 2em;">📚</div>
+                                <div class="stat-label">Tổng khóa học</div>
+                                <div class="stat-number">25</div>
+                            </div>
+                            <div class="stat-card alt">
+                                <div style="font-size: 2em;">👥</div>
+                                <div class="stat-label">Tổng học viên</div>
+                                <div class="stat-number">150</div>
+                            </div>
+                            <div class="stat-card alt2">
+                                <div style="font-size: 2em;">💰</div>
+                                <div class="stat-label">Tổng doanh thu</div>
+                                <div class="stat-number">50M</div>
+                            </div>
+                            <div class="stat-card alt3">
+                                <div style="font-size: 2em;">🔥</div>
+                                <div class="stat-label">Khóa HOT nhất</div>
+                                <div class="stat-number" style="font-size: 1.5em; margin: 10px 0;">Python 101</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="color: #333; margin-bottom: 20px;">📊 Doanh thu theo khóa học</h3>
+                    <table class="course-table">
+                        <thead>
+                            <tr>
+                                <th>Khóa học</th>
+                                <th>Học viên</th>
+                                <th>Doanh thu</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Web Development</strong></td>
+                                <td>30</td>
+                                <td>150.000.000 VND</td>
+                                <td><span class="badge-pill badge-published">Published</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Python 101</strong></td>
+                                <td>35</td>
+                                <td>105.000.000 VND</td>
+                                <td><span class="badge-pill badge-published">Published</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>React.js</strong></td>
+                                <td>25</td>
+                                <td>150.000.000 VND</td>
+                                <td><span class="badge-pill badge-published">Published</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Java Advanced</strong></td>
+                                <td>15</td>
+                                <td>105.000.000 VND</td>
+                                <td><span class="badge-pill badge-draft">Draft</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Courses List Screenshot -->
+        <div class="screenshot-wrapper">
+            <h2 class="screenshot-title">📚 Danh sách Khóa Học</h2>
+            <p class="description-text">Quản lý tất cả khóa học với tính năng tìm kiếm, lọc và sắp xếp</p>
+            
+            <div class="screenshot-frame">
+                <div class="frame-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="flex: 1; margin-left: 10px;">http://localhost:8000/courses</span>
+                </div>
+                <div class="frame-body">
+                    <div class="navbar-mock">
+                        <span style="font-weight: bold;">🎓 COURSE MANAGER</span>
+                        <div>
+                            <a href="#">Dashboard</a>
+                            <a href="#">Khóa học</a>
+                        </div>
+                    </div>
+
+                    <h2 style="color: #333; margin-bottom: 20px;">📖 Danh sách khóa học</h2>
+
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="🔍 Tìm kiếm theo tên khóa học...">
+                        <select class="search-input" style="flex: 0 0 150px;">
+                            <option>Tất cả trạng thái</option>
+                            <option>Published</option>
+                            <option>Draft</option>
+                        </select>
+                        <button class="btn-mock btn-primary-mock">Thêm khóa học</button>
+                    </div>
+
+                    <table class="course-table">
+                        <thead>
+                            <tr>
+                                <th>Tên khóa học</th>
+                                <th>Giá</th>
+                                <th>Bài học</th>
+                                <th>Học viên</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Web Development - HTML/CSS/JavaScript</strong></td>
+                                <td>5.000.000 VND</td>
+                                <td>12</td>
+                                <td>30</td>
+                                <td><span class="badge-pill badge-published">Published</span></td>
+                                <td>
+                                    <a class="btn-mock btn-primary-mock">Chi tiết</a>
+                                    <a class="btn-mock btn-secondary-mock">Sửa</a>
+                                    <a class="btn-mock btn-danger-mock">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Python 101 - Lập trình Python</strong></td>
+                                <td>3.000.000 VND</td>
+                                <td>12</td>
+                                <td>35</td>
+                                <td><span class="badge-pill badge-published">Published</span></td>
+                                <td>
+                                    <a class="btn-mock btn-primary-mock">Chi tiết</a>
+                                    <a class="btn-mock btn-secondary-mock">Sửa</a>
+                                    <a class="btn-mock btn-danger-mock">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>React.js - Xây dựng ứng dụng hiện đại</strong></td>
+                                <td>6.000.000 VND</td>
+                                <td>10</td>
+                                <td>25</td>
+                                <td><span class="badge-pill badge-published">Published</span></td>
+                                <td>
+                                    <a class="btn-mock btn-primary-mock">Chi tiết</a>
+                                    <a class="btn-mock btn-secondary-mock">Sửa</a>
+                                    <a class="btn-mock btn-danger-mock">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Java Advanced - OOP & Design Pattern</strong></td>
+                                <td>7.000.000 VND</td>
+                                <td>15</td>
+                                <td>15</td>
+                                <td><span class="badge-pill badge-draft">Draft</span></td>
+                                <td>
+                                    <a class="btn-mock btn-primary-mock">Chi tiết</a>
+                                    <a class="btn-mock btn-secondary-mock">Sửa</a>
+                                    <a class="btn-mock btn-danger-mock">Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="pagination-mock">
+                        <span>← Trang trước</span>
+                        <span class="active">1</span>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">Trang sau →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Details Screenshot -->
+        <div class="screenshot-wrapper">
+            <h2 class="screenshot-title">📖 Chi tiết Khóa Học</h2>
+            <p class="description-text">Xem toàn bộ thông tin, bài học và danh sách học viên của một khóa học</p>
+            
+            <div class="screenshot-frame">
+                <div class="frame-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="flex: 1; margin-left: 10px;">http://localhost:8000/courses/1</span>
+                </div>
+                <div class="frame-body">
+                    <div class="navbar-mock">
+                        <span style="font-weight: bold;">🎓 COURSE MANAGER</span>
+                    </div>
+
+                    <h2 style="color: #333; margin-bottom: 20px;">📖 Chi tiết khóa học</h2>
+
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 30px; margin-bottom: 30px;">
+                        <div>
+                            <div style="height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 60px; margin-bottom: 15px;">
+                                🌐
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="color: #333; margin-bottom: 15px;">Web Development - HTML/CSS/JavaScript</h3>
+                            <p class="description-text"><strong>Giá:</strong> 5.000.000 VND</p>
+                            <p class="description-text"><strong>Trạng thái:</strong> <span class="badge-pill badge-published">Published</span></p>
+                            <p class="description-text"><strong>Bài học:</strong> 12 | <strong>Học viên:</strong> 30</p>
+                            <p class="description-text"><strong>Mô tả:</strong> Khóa học lập trình web từ cơ bản đến nâng cao. Học viên sẽ nắm vững HTML, CSS, JavaScript và xây dựng các trang web responsive.</p>
+                            <div style="margin-top: 20px;">
+                                <a class="btn-mock btn-secondary-mock">Sửa</a>
+                                <a class="btn-mock btn-danger-mock">Xóa</a>
+                                <a class="btn-mock btn-primary-mock">Quay lại</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-break"></div>
+
+                    <h3 style="color: #333; margin-bottom: 20px;">📚 Danh sách bài học</h3>
+                    <div class="lessonlist">
+                        <div class="lesson-item">
+                            <div class="lesson-number">1</div>
+                            <div class="lesson-title">Giới thiệu về HTML</div>
+                            <div>
+                                <a class="btn-mock btn-secondary-mock">Sửa</a>
+                                <a class="btn-mock btn-danger-mock">Xóa</a>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-number">2</div>
+                            <div class="lesson-title">Các tag HTML cơ bản</div>
+                            <div>
+                                <a class="btn-mock btn-secondary-mock">Sửa</a>
+                                <a class="btn-mock btn-danger-mock">Xóa</a>
+                            </div>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-number">3</div>
+                            <div class="lesson-title">CSS selector và styling</div>
+                            <div>
+                                <a class="btn-mock btn-secondary-mock">Sửa</a>
+                                <a class="btn-mock btn-danger-mock">Xóa</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-mock btn-success-mock" style="margin-top: 15px;">+ Thêm bài học</button>
+
+                    <div class="section-break"></div>
+
+                    <h3 style="color: #333; margin-bottom: 20px;">👥 Danh sách học viên (30 học viên)</h3>
+                    <table class="course-table">
+                        <thead>
+                            <tr>
+                                <th>Tên học viên</th>
+                                <th>Email</th>
+                                <th>Ngày đăng ký</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nguyễn Văn A</td>
+                                <td>nguyen.van.a@email.com</td>
+                                <td>08/04/2026</td>
+                            </tr>
+                            <tr>
+                                <td>Trần Thị B</td>
+                                <td>tran.thi.b@email.com</td>
+                                <td>07/04/2026</td>
+                            </tr>
+                            <tr>
+                                <td>Lê Văn C</td>
+                                <td>le.van.c@email.com</td>
+                                <td>06/04/2026</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Course Form -->
+        <div class="screenshot-wrapper">
+            <h2 class="screenshot-title">✏️ Tạo / Sửa Khóa Học</h2>
+            <p class="description-text">Biểu mẫu để tạo mới hoặc cập nhật thông tin khóa học</p>
+            
+            <div class="screenshot-frame">
+                <div class="frame-header">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <span style="flex: 1; margin-left: 10px;">http://localhost:8000/courses/create</span>
+                </div>
+                <div class="frame-body">
+                    <div class="navbar-mock">
+                        <span style="font-weight: bold;">🎓 COURSE MANAGER</span>
+                    </div>
+
+                    <h2 style="color: #333; margin-bottom: 30px;">✨ Tạo khóa học mới</h2>
+
+                    <form style="max-width: 600px;">
+                        <div class="form-group-mock">
+                            <label class="form-label-mock">Tên khóa học *</label>
+                            <input type="text" class="form-input-mock" placeholder="VD: Web Development">
+                        </div>
+
+                        <div class="form-group-mock">
+                            <label class="form-label-mock">Giá (VND) *</label>
+                            <input type="number" class="form-input-mock" placeholder="VD: 5000000">
+                        </div>
+
+                        <div class="form-group-mock">
+                            <label class="form-label-mock">Mô tả</label>
+                            <textarea class="form-input-mock" style="min-height: 120px; font-family: inherit;" placeholder="Mô tả chi tiết khóa học..."></textarea>
+                        </div>
+
+                        <div class="form-group-mock">
+                            <label class="form-label-mock">Ảnh đại diện</label>
+                            <input type="file" class="form-input-mock">
+                            <small style="color: #666;">Tối đa 2MB (JPG, PNG, GIF)</small>
+                        </div>
+
+                        <div class="form-group-mock">
+                            <label class="form-label-mock">Trạng thái *</label>
+                            <div style="margin-top: 10px;">
+                                <label style="margin-right: 20px;">
+                                    <input type="radio" name="status"> Draft
+                                </label>
+                                <label>
+                                    <input type="radio" name="status"> Published
+                                </label>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 30px;">
+                            <button type="submit" class="btn-mock btn-success-mock" style="font-size: 1em; padding: 12px 30px;">Lưu khóa học</button>
+                            <button type="reset" class="btn-mock btn-secondary-mock" style="font-size: 1em; padding: 12px 30px;">Hủy</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features List -->
+        <div class="screenshot-wrapper">
+            <h2 class="screenshot-title">✨ Các tính năng chính</h2>
+            <p class="description-text">Những chức năng nổi bật của hệ thống</p>
+            
+            <div class="screenshot-frame">
+                <div class="frame-body">
+                    <ul class="feature-list">
+                        <li><strong>CRUD Khóa học:</strong> Tạo, xem, sửa, xóa khóa học với hỗ trợ soft delete</li>
+                        <li><strong>Quản lý bài học:</strong> Thêm, chỉnh sửa, xóa bài học cho từng khóa học</li>
+                        <li><strong>Đăng ký học:</strong> Quản lý đăng ký học viên và xem danh sách theo khóa học</li>
+                        <li><strong>Upload ảnh:</strong> Tải lên ảnh đại diện cho khóa học (với xử lý file tự động)</li>
+                        <li><strong>Tìm kiếm:</strong> Tìm kiếm khóa học theo tên (LIKE query)</li>
+                        <li><strong>Lọc dữ liệu:</strong> Lọc theo trạng thái (Draft/Published) và khoảng giá</li>
+                        <li><strong>Sắp xếp:</strong> Sắp xếp theo giá, số học viên, ngày tạo (ASC/DESC)</li>
+                        <li><strong>Phân trang:</strong> Hiển thị 10 item/trang với phân trang, giữ query string</li>
+                        <li><strong>Dashboard:</strong> Thống kê tổng số khóa học, học viên, doanh thu</li>
+                        <li><strong>Khóa HOT:</strong> Hiển thị khóa học có học viên nhiều nhất</li>
+                        <li><strong>Xóa mềm:</strong> Xóa khóa học mà có thể khôi phục lại sau</li>
+                        <li><strong>Soft Delete:</strong> Xem danh sách khóa học đã xóa và restore</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="screenshot-wrapper">
+            <h2 class="screenshot-title">🛠️ Công nghệ sử dụng</h2>
+            <p class="description-text">Stack công nghệ đằng sau ứng dụng</p>
+            
+            <div class="screenshot-frame">
+                <div class="frame-body">
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">Backend</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li>✅ Laravel 13.0</li>
+                                <li>✅ PHP 8.3</li>
+                                <li>✅ MySQL / SQLite</li>
+                                <li>✅ Eloquent ORM</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">Frontend</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li>✅ Bootstrap 5.3.2</li>
+                                <li>✅ Blade Template</li>
+                                <li>✅ Vite</li>
+                                <li>✅ Responsive Design</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">Patterns & Features</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li>✅ MVC Architecture</li>
+                                <li>✅ Eloquent Relationships</li>
+                                <li>✅ Form Request Validation</li>
+                                <li>✅ Eager Loading</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary); margin-bottom: 10px;">Database</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li>✅ Migrations</li>
+                                <li>✅ Soft Delete</li>
+                                <li>✅ Foreign Keys</li>
+                                <li>✅ Timestamps</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>🚀 Course Management System</h3>
+            <p>Mini Project - Quản lý Khóa Học | Version 1.0 | Laravel 13.0</p>
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                Repository: <a href="https://github.com/VuongDT12/Ktra" target="_blank">https://github.com/VuongDT12/Ktra</a>
+            </p>
+            <p style="margin-top: 15px; color: #999;">
+                📄 Created: April 8, 2026 | Phiên bản: 1.0
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
